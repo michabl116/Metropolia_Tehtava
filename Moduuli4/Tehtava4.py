@@ -1,6 +1,7 @@
 import  random
 arpa_luku= int(input("Arpa luku 1 - 10: "))
 num_ramdon = random.randint(1,10)
+print(num_ramdon)
 
 while arpa_luku < num_ramdon:
     print("Liian pieni arvaus")
