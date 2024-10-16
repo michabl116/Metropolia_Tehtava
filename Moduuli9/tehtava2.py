@@ -1,26 +1,39 @@
 class Auto:
-    def __init__(self, rekisteritunnus, huippunopeus,tamanhetkinen_nopeus):
+    def __init__(self, rekisteritunnus, huippunopeus):
         self.rekisteritunnus = rekisteritunnus
         self.huippunopeus = huippunopeus
         self.tamanhetkinen_nopeus = 0
         self.kuljettu_matka = 0
+
     def kiihdyt(self, nop):
-        if self.tamanhetkinen_nopeus > 0 or self.tamanhetkinen_nopeus <= 30:
-            print("auto nopeuta")
-        else:
-            print("auto hidasta")
+        if nop < 0:
+            self.tamanhetkinen_nopeus = 0
+            print("Hätäjarrutus ")
+        elif nop < self.tamanhetkinen_nopeus:
+            self.tamanhetkinen_nopeus = nop
+            print("Auto hidastuu")
+        elif nop > self.tamanhetkinen_nopeus and nop <= self.huippunopeus:
+            self.tamanhetkinen_nopeus = nop
+            print("Auto nopeuttaa")
+        elif nop == self.tamanhetkinen_nopeus:
+            print(f"Auto mantiene la velocidad a {nop} km/h")
+        elif nop > self.huippunopeus:
+            self.tamanhetkinen_nopeus = self.huippunopeus
+            print("Auto saavutti huippunopeuden")
         return
 
+rekt1 = Auto("ABC-123", 142)
 
-rekt1 = Auto("ABC-123", 142,)
+
 rekt1.kiihdyt(30)
-#rek1.kiihdyt()
-#rek3.kiihdyt()
+rekt1.kiihdyt(70)
+rekt1.kiihdyt(50)
+rekt1.kiihdyt(-200)
 
 
+print(f"rekisteritunnus: {rekt1.rekisteritunnus}")
+print(f"huippunopeus: {rekt1.huippunopeus}")
+print(f"tamanhetkinen nopeus: {rekt1.tamanhetkinen_nopeus}")
+print(f"kuljettu matka: {rekt1.kuljettu_matka}")
 
 
-print(f"rekisteritunnus :{rekt.rekisteritunnus}")
-print(f"huippunopeus: {rekt.huippunopeus}")
-print(f"tamanketkinen nopeus:{rekt.tamanhetkinen_nopeus}")
-print(f"kuljettu_matka:{rekt.kuljettu_matka}")
