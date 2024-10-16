@@ -22,14 +22,22 @@ class Auto:
             print("Auto saavutti huippunopeuden")
         return
 
+    def kulje(self, tuntimaara):
+
+        matka = self.tamanhetkinen_nopeus * tuntimaara
+        self.kuljettu_matka += matka
+        print(f"Auto on kulkenut yhteensä {self.kuljettu_matka} km")
+
 rekt1 = Auto("ABC-123", 142)
 
 
 rekt1.kiihdyt(30)
 rekt1.kiihdyt(70)
 rekt1.kiihdyt(50)
-rekt1.kiihdyt(-200)
 
+rekt1.kuljettu_matka = 2000
+rekt1.kulje(1.5)
+rekt1.kiihdyt(-200)
 
 print(f"rekisteritunnus: {rekt1.rekisteritunnus}")
 print(f"huippunopeus: {rekt1.huippunopeus}")
