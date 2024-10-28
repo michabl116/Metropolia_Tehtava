@@ -9,6 +9,7 @@ class autokilpailu:
 
 Auto = autokilpailu()
 
+Auto.auto
 
 #lista_autokilpailu = ["ABC1","ABC2","ABC3","ABC4","ABC5","ABC6",
                       #"ABC7","ABC7""ABC8""ABC9","ABC10"]
