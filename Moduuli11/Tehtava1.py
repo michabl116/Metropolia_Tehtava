@@ -3,7 +3,7 @@ class Julkaisu:
         self.nimi = nimi
 
 
-# Aliluokka Kirja
+
 class Kirja(Julkaisu):
     def __init__(self, nimi, kirjoittaja, sivumaara):
         super().__init__(nimi)
@@ -16,7 +16,6 @@ class Kirja(Julkaisu):
         print(f"Sivumäärä: {self.sivumaara}")
 
 
-# Aliluokka Lehti
 class Lehti(Julkaisu):
     def __init__(self, nimi, paatoimittaja):
         super().__init__(nimi)
@@ -33,7 +32,7 @@ lehti = Lehti("Aku Ankka", "Aki Hyyppä")
 kirja = Kirja("Hytti n:o 6", "Rosa Liksom", 200)
 
 lehti.tulosta_tiedot()
-print()  # Tyhjä rivi erotukseksi
+print()
 kirja.tulosta_tiedot()
 
 

@@ -1,49 +1,40 @@
 import random
 
+
 class Auto:
-    def __init__(self, rekisteritunnus, huippunopeus):
-        self.rekisteritunnus = rekisteritunnus
+    def __init__(self, rekisteri, huippunopeus):
+        self.rekisteri = rekisteri
         self.huippunopeus = huippunopeus
         self.nopeus = 0
         self.kuljettu_matka = 0
 
     def kiihdyta(self, muutos):
         self.nopeus += muutos
-        self.nopeus = max(0, min(self.nopeus, self.huippunopeus))
+        if self.nopeus < 0:
+            self.nopeus = 0
+        elif self.nopeus > self.huippunopeus:
+            self.nopeus = self.huippunopeus
 
     def kulje(self, tunnit=1):
         self.kuljettu_matka += self.nopeus * tunnit
-    def __str__(self):
-        return f"{self.rekisteritunnus:<8} | {self.huippunopeus:<11} | {self.nopeus:<6} | {self.kuljettu_matka:<10}"
-
-
 
 autot = []
 for i in range(1, 11):
-    rekisteritunnus = f"ABC-{i}"
     huippunopeus = random.randint(100, 200)
-    auto = Auto(rekisteritunnus, huippunopeus)
-    autot.append(auto)
-
+    rekisteri = f"ABC-{i}"
+    autot.append(Auto(rekisteri, huippunopeus))
 
 kilpailu_kaynnissa = True
 while kilpailu_kaynnissa:
     for auto in autot:
-
-        nopeuden_muutos = random.randint(-10, 15)
-        auto.kiihdyta(nopeuden_muutos)
-
+        muutos = random.randint(-10, 15)
+        auto.kiihdyta(muutos)
         auto.kulje()
-
-
         if auto.kuljettu_matka >= 10000:
             kilpailu_kaynnissa = False
             break
 
-
-print(f"{'Rekisteri':<8} | {'Huippunopeus':<11} | {'Nopeus':<6} | {'Kuljettu matka'}")
+print(f"{'Rekisteri':<8} | {'Huippunopeus':<11} | {'Nopeus':<6} | {'Kuljettu matka':<10}")
 print("-" * 40)
 for auto in autot:
-    print(auto)
-
-
+    print(f"{auto.rekisteri:<8} | {auto.huippunopeus:<11} | {auto.nopeus:<6} | {auto.kuljettu_matka:<10}")
