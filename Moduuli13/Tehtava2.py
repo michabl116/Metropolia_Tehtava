@@ -8,7 +8,7 @@ def lentokenta(kodi):
         host='127.0.0.1',
         port=3306,
         database='flight_game',
-        user='root',
+        user='',
         password='1Peru20243#',
         autocommit=True
     )
